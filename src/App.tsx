@@ -20,7 +20,7 @@ const Sidebar = () => (
         <p>Analyse.</p>
         <p>Visualise.</p>
       </div>
-        <img src="public/IMG_20250612_165844-Photoroom.png" alt="Girl working with laptop" className="sidebar-img" />
+        <img src="/IMG_20250612_165844-Photoroom.png" alt="Girl working with laptop" className="sidebar-img" />
     </div>
   </div>
 );
