@@ -69,3 +69,103 @@
   color: green;
   margin-top: 10px;
 }
+
+@media (max-width: 768px) {
+  .signup-page {
+    padding: 20px;
+    height: auto;
+    align-items: flex-start;
+  }
+
+  .signup-box {
+    width: 100%;
+    max-width: 90%;
+    padding: 30px 20px;
+  }
+
+  .signup-form input,
+  .signup-form select {
+    font-size: 15px;
+  }
+
+  .signup-form button {
+    font-size: 15px;
+  }
+
+  .signup-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* @media (max-width: 480px) {
+  .signup-box {
+    padding: 24px 16px;
+  }
+
+  .signup-title {
+    font-size: 1.3rem;
+  }
+
+  .signup-form input,
+  .signup-form select {
+    font-size: 14px;
+  }
+
+  .signup-form button {
+    font-size: 14px;
+  }
+
+  .signup-message {
+    font-size: 14px;
+  }
+} */
+
+@media (max-width: 768px) {
+  .signup-page {
+    padding: 2rem 1rem;
+  }
+
+  .signup-box {
+    padding: 2rem 1.5rem;
+    max-width: 90vw;
+  }
+
+  .signup-title {
+    font-size: 1.5rem;
+  }
+
+  .signup-form input,
+  .signup-form select {
+    font-size: 0.95rem;
+    padding: 0.7rem 0.9rem;
+  }
+
+  .signup-form button {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-box {
+    padding: 1.5rem 1rem;
+    max-width: 95vw;
+  }
+
+  .signup-title {
+    font-size: 1.3rem;
+  }
+
+  .signup-form input,
+  .signup-form select {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .signup-form button {
+    font-size: 0.9rem;
+  }
+
+  .signup-message {
+    font-size: 0.9rem;
+  }
+}

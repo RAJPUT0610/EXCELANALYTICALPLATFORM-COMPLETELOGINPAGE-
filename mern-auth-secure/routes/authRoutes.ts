@@ -13,12 +13,25 @@
 // });
 
 // export default router;
+// second update
+// import express from "express";
+// import { loginUser, registerUser } from "../controllers/authController";
+
+// const router = express.Router();
+
+// router.post("/register", registerUser); 
+// router.post("/login", loginUser);
+
+// export default router;
+
 import express from "express";
-import { loginUser, registerUser } from "../controllers/authController";
+import { loginUser, registerUser, resetPassword } from "../controllers/authController";
 
 const router = express.Router();
 
 router.post("/register", registerUser); 
 router.post("/login", loginUser);
+router.post("/reset-password", resetPassword); // ✅ Added for forgot password
 
 export default router;
+
