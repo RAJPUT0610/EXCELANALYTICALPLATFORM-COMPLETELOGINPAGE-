@@ -1,6 +1,7 @@
 // import type React from 'react';
 // import { useState } from 'react';
-// import './index.css';
+// import "./index.css"; 
+
 
 // const Sidebar = () => (
 //   <div className="sidebar">
@@ -95,21 +96,102 @@
 
 // export default Login;
 
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import Login from "./components/Login";
-import Register from "./components/Register";
+import type React from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom'; // ✅ Import Link from react-router-dom
+import "./index.css"; 
 
-const App = () => {
+const Sidebar = () => (
+  <div className="sidebar">
+    <div className="sidebar-header">
+      <div className="logo-title-container">
+        <span className="logo">&#x1F4CA;</span>
+        <span className="sidebar-app">Excel Analytics</span>
+      </div>
+    </div>
+
+    <div className="sidebar-illustration">
+      <div className="sidebar-text-stack">
+        <p>Upload.</p>
+        <p>Analyse.</p>
+        <p>Visualise.</p>
+      </div>
+      <img src="/IMG_20250612_165844-Photoroom.png" alt="Girl working with laptop" className="sidebar-img" />
+    </div>
+  </div>
+);
+
+const Login = () => {
+  const [role, setRole] = useState<'user' | 'admin'>('user');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleRoleToggle = () => {
+    setRole(role === 'user' ? 'admin' : 'user');
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Will handle backend auth later
+    console.log({ email, password, role });
+  };
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
-    </Router>
+    <div className="login-page">
+      <Sidebar />
+      <div className="login-form-wrapper">
+        <form className="login-form" onSubmit={handleSubmit}>
+          <h2 className="login-title">Login to</h2>
+          <h2 className="login-title-b">Excel Analytics</h2>
+          
+          <input
+            type="email"
+            className="login-input"
+            placeholder="Email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            className="login-input"
+            placeholder="Password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            required
+          />
+
+          <div className="role-toggle-container">
+            <span className="role-option user">User</span>
+            <label className="switch">
+              <input
+                type="checkbox"
+                checked={role === 'admin'}
+                onChange={handleRoleToggle}
+              />
+              <span className="slider round"></span>
+            </label>
+            <span className="role-option admin">Admin</span>
+          </div>
+
+          <button className="login-button" type="submit">
+            Login
+          </button>
+
+          <div className="login-links">
+            <a href="#" className="forgot-password">Forgot password?</a>
+            <div className="signup-wrapper">
+              <span className="signup-text">New user?</span>
+              <Link to="/register" className="signup-link">Sign up</Link> {/* ✅ Updated */}
+            </div>
+          </div>
+
+          {error && <div className="login-error">{error}</div>}
+        </form>
+      </div>
+    </div>
   );
 };
 
-export default App;
+export default Login;
